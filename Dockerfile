@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+RUN mv /bin/sh /bin/sh.old && ln -s bash /bin/sh
 RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip -y
 
 ARG user=jenkins

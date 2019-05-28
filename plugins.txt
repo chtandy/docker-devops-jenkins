@@ -1,0 +1,7 @@
+scm-sync-configuration::latest
+git:latest
+github-api:latest
+github:latest
+scm-api:latest
+slack:latest
+role-strategy:latest

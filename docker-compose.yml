@@ -1,0 +1,19 @@
+version: '3'
+services:
+  ubuntu:
+    build:
+      context: ./
+    container_name: jenkins
+    hostname: jenkins
+    environment:
+      #JAVA_OPTS: "-Xmx512m -Xms512m"
+      JAVA_OPTS: "-Djava.awt.headless=true"
+    ports:
+      - '8090:8080'
+      - '5000:5000'
+    volumes:
+      # mkdir -p ./data/jenkins_home ./data/data  && chmod 777 ./data/jenkins_home && umask 0002
+      - ./data/jenkins_home:/var/jenkins_home
+      - ./data/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker 

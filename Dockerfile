@@ -99,6 +99,13 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
 ##  clean apt install
 RUN rm -rf /var/lib/apt/lists/* && \
     apt-get clean
+    
+## kubectl client
+RUN wget https://dl.k8s.io/v1.10.12/kubernetes-client-linux-amd64.tar.gz && \
+    tar -xzvf kubernetes-client-linux-amd64.tar.gz && \
+    mv kubernetes/client/bin/kubectl  /usr/bin/ && \
+    rm -f kubernetes-client-linux-amd64.tar.gz && \
+    rm -rf kubernetes
 
 USER ${user}
 

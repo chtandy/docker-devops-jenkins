@@ -32,7 +32,7 @@ if [[ $# -lt 1 ]] || [[ "$1" == "--"* ]]; then
     jenkins_opts_array+=( "$item" )
   done < <([[ $JENKINS_OPTS ]] && xargs printf '%s\0' <<<"$JENKINS_OPTS")
 
-  exec java -Duser.home="$JENKINS_HOME" "${java_opts_array[@]}" -jar ${JENKINS_WAR} "${jenkins_opts_array[@]}" "$@"
+  exec java -Duser.home="$JENKINS_HOME" "${java_opts_array[@]}" -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -jar ${JENKINS_WAR} "${jenkins_opts_array[@]}" "$@"
 fi
 
 # As argument is not jenkins, assume user want to run his own process, for example a `bash` shell to explore this image

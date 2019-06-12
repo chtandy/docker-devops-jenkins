@@ -9,3 +9,4 @@ multiple-scms:latest
 artifact-manager-s3:latest
 s3:latest
 categorized-view:latest
+thinBackup:latest

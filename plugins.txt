@@ -5,3 +5,4 @@ github:latest
 scm-api:latest
 slack:latest
 role-strategy:latest
+multiple-scms:latest

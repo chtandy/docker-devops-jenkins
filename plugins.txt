@@ -12,3 +12,4 @@ categorized-view:latest
 thinBackup:latest
 xcode-plugin:latest
 kpp-management-plugin:latest
+gitlab-plugin:latest

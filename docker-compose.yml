@@ -9,8 +9,8 @@ services:
       #JAVA_OPTS: "-Xmx512m -Xms512m"
       JAVA_OPTS: "-Djava.awt.headless=true"
     ports:
-      - '8090:8080'
-      - '5000:5000'
+      - '8080:8080'
+      - '50000:50000'
     volumes:
       # mkdir -p ./data/jenkins_home ./data/data  && chmod 777 ./data/jenkins_home && umask 0002
       - ./data/jenkins_home:/var/jenkins_home

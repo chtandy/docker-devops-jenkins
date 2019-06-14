@@ -1,6 +1,6 @@
 version: '3'
 services:
-  ubuntu:
+  jenkins:
     build:
       context: ./
     container_name: jenkins
@@ -19,4 +19,10 @@ services:
       # linux use - /usr/bin/docker:/usr/bin/docker.sock
       # mac use - /usr/local/bin/docker:/usr/bin/docker
       - /usr/bin/docker:/usr/bin/docker 
-    restart: always
+    #restart: always
+    restart: unless-stopped  #上一次的狀態
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"

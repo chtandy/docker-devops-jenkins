@@ -13,3 +13,4 @@ thinBackup:latest
 #xcode-plugin:latest
 #kpp-management-plugin:latest
 gitlab-plugin:latest
+cron_column:latest

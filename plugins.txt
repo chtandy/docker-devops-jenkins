@@ -20,3 +20,4 @@ parameterized-trigger:latest
 jobConfigHistory:latest
 job-import-plugin:latest
 envinject:latest
+docker-plugin:latest

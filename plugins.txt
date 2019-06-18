@@ -22,3 +22,4 @@ job-import-plugin:latest
 envinject:latest
 docker-plugin:latest
 ansible:latest
+jira:latest

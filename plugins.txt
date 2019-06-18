@@ -25,3 +25,4 @@ jira:latest
 log-parser:latest
 jenkins-multijob-plugin:latest
 mask-passwords:latest
+publish-over-ssh:latest

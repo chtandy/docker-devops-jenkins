@@ -16,3 +16,4 @@ gitlab-plugin:latest
 cron_column:latest
 http_request:latest
 parameterized-trigger:latest
+jobConfigHistory:latest

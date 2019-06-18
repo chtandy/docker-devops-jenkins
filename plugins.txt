@@ -1,4 +1,5 @@
-#scm-sync-configuration::latest
+#scm-sync-configuration:latest
+build-timeout:latest
 git:latest
 github-api:latest
 github:latest

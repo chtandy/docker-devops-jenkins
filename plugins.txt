@@ -16,7 +16,7 @@ thinBackup:latest
 gitlab-plugin:latest
 cron_column:latest
 http_request:latest
-#parameterized-trigger:latest
+parameterized-trigger:latest
 jobConfigHistory:latest
 job-import-plugin:latest
 docker-plugin:latest

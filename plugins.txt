@@ -1,4 +1,4 @@
-scm-sync-configuration::latest
+#scm-sync-configuration::latest
 git:latest
 github-api:latest
 github:latest
@@ -7,9 +7,9 @@ slack:latest
 role-strategy:latest
 multiple-scms:latest
 artifact-manager-s3:latest
-s3:latest
+#s3:latest
 categorized-view:latest
 thinBackup:latest
-xcode-plugin:latest
-kpp-management-plugin:latest
+#xcode-plugin:latest
+#kpp-management-plugin:latest
 gitlab-plugin:latest

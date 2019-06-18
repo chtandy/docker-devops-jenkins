@@ -14,3 +14,4 @@ thinBackup:latest
 #kpp-management-plugin:latest
 gitlab-plugin:latest
 cron_column:latest
+http_request:latest

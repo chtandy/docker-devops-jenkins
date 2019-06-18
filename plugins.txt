@@ -23,3 +23,4 @@ docker-plugin:latest
 ansible:latest
 jira:latest
 log-parser:latest
+jenkins-multijob-plugin:latest

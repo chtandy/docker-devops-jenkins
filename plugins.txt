@@ -49,3 +49,4 @@ docker-build-publish:latest
 workflow-job:latest
 workflow-cps:latest
 pipeline-model-definition:latest
+authorize-project:latest

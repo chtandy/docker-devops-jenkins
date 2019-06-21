@@ -35,3 +35,4 @@ email-ext:latest
 workflow-job:latest
 workflow-cps:latest
 pipeline-model-definition:latest
+ cloudbees-folder:latest

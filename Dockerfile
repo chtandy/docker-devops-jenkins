@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 RUN mv /bin/sh /bin/sh.old && ln -s bash /bin/sh
-RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales -y
+RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales -y && \
+    rm -rf /var/lib/apt/lists/* && apt-get clean
+
 RUN locale-gen zh_TW.UTF-8 && echo 'export LANGUAGE="zh_TW.UTF-8"' >> /root/.bashrc && \
     echo 'export LANG="zh_TW.UTF-8"' >> /root/.bashrc && \
     echo 'export LC_ALL="zh_TW.UTF-8"' >> /root/.bashrc && update-locale LANG=zh_TW.UTF-8
@@ -86,19 +88,17 @@ RUN echo "Host *" >> /etc/ssh/ssh_config && \
     echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
     echo "    UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
 
-RUN set -eux && apt-get update && apt-get install sudo python wget curl zlib1g-dev rsync python-pip vim -y
+RUN set -eux && apt-get update && apt-get install sudo python wget curl zlib1g-dev rsync python-pip vim -y && \
+    rm -rf /var/lib/apt/lists/* && apt-get clean
+
 ##  ansible
-RUN apt-get install software-properties-common -y && \
+RUN apt update && apt-get install software-properties-common -y && \
     apt-add-repository ppa:ansible/ansible && \
-    rm -rf /etc/apt/sources.list.d/ansible-ubuntu-ansible-eoan.list && \
-    apt-get update && \
-    apt-get install ansible -y
+    apt-get install ansible -y && rm -rf /var/lib/apt/lists/* && apt-get clean
+
 ##  nodejs
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
-    apt-get install -y nodejs
-##  clean apt install
-RUN rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
+    apt-get install -y nodejs && rm -rf /var/lib/apt/lists/* && apt-get clean
     
 ## kubectl client
 RUN wget https://dl.k8s.io/v1.10.12/kubernetes-client-linux-amd64.tar.gz && \

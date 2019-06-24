@@ -52,3 +52,4 @@ pipeline-model-definition:latest
 authorize-project:latest
 copyartifact:latest
 maven-plugin:latest
+nested-view:latest

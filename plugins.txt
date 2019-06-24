@@ -51,3 +51,4 @@ workflow-cps:latest
 pipeline-model-definition:latest
 authorize-project:latest
 copyartifact:latest
+transaction:latest

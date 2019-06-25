@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 RUN mv /bin/sh /bin/sh.old && ln -s bash /bin/sh
-RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales -y && \
+RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales unzip -y && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN locale-gen zh_TW.UTF-8 && echo 'export LANGUAGE="zh_TW.UTF-8"' >> /root/.bashrc && \
@@ -106,6 +106,21 @@ RUN wget https://dl.k8s.io/v1.10.12/kubernetes-client-linux-amd64.tar.gz && \
     mv kubernetes/client/bin/kubectl  /usr/bin/ && \
     rm -f kubernetes-client-linux-amd64.tar.gz && \
     rm -rf kubernetes
+## Helm
+RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz && \
+    tar -zxf helm-v2.11.0-linux-amd64.tar.gz && \
+    mv linux-amd64/helm linux-amd64/tiller /usr/bin/ && \
+    rm -rf linux-amd64 && \
+    rm -f helm-v2.11.0-linux-amd64.tar.gz
+
+## terraform
+RUN wget https://releases.hashicorp.com/terraform/0.12.3/terraform_0.12.3_linux_amd64.zip && \
+    unzip terraform_0.12.3_linux_amd64.zip && \
+    mv terraform /usr/bin/ && \
+    rm -f terraform_0.12.3_linux_amd64.zip
+
+## aws cli
+RUN apt update && python -m pip install --upgrade pip && pip install awscli && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 USER ${user}
 

@@ -80,9 +80,6 @@ EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
-# clean apt install
-RUN rm -rf /var/lib/apt/lists/* && apt-get clean
-
 # set /etc/ssh/ssh_config
 RUN echo "Host *" >> /etc/ssh/ssh_config && \
     echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
@@ -106,6 +103,7 @@ RUN wget https://dl.k8s.io/v1.10.12/kubernetes-client-linux-amd64.tar.gz && \
     mv kubernetes/client/bin/kubectl  /usr/bin/ && \
     rm -f kubernetes-client-linux-amd64.tar.gz && \
     rm -rf kubernetes
+    
 ## Helm
 RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz && \
     tar -zxf helm-v2.11.0-linux-amd64.tar.gz && \

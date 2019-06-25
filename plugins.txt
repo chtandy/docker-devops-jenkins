@@ -53,3 +53,4 @@ authorize-project:latest
 copyartifact:latest
 maven-plugin:latest
 nested-view:latest
+gitlab-oauth:latest

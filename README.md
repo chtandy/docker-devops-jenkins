@@ -12,3 +12,5 @@
 mkdir -p ./data/jenkins_home ./data/data && umask 0002 && \
 touch ./data/jenkins_home/copy_reference_file.log && chmod +rw ./data/jenkins_home/copy_reference_file.log
 ```
+### 第一次啟動
+docker-compose up -d --build

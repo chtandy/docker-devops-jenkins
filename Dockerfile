@@ -18,7 +18,6 @@ ARG KUBECTL=v1.10.12
 ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
 ARG DOCKER_VERSION=18.09.0
-ARG JENKINS_SLAVE_VER=3.28
 ###########################################################################
 # ENV for Master
 ###########################################################################
@@ -28,15 +27,7 @@ ENV JENKINS_UC https://updates.jenkins.io
 ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 ENV JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
-ENV JENKINS_MODE ${JENKINS_MODE}
 
-###########################################################################
-# ENV for Slave
-###########################################################################
-ENV JENKINS_MASTER_URL=${JENKINS_MASTER_URL}
-ENV JENKINS_SLAVE_NAME=${JENKINS_SLAVE_NAME}
-ENV JENKINS_SLAVE_SECRET=${JENKINS_SLAVE_SECRET}
-ENV JENKINS_SLAVE_WORKDIR=${JENKINS_SLAVE_WORKDIR}
 
 ###########################################################################
 # EXPOSE
@@ -97,8 +88,6 @@ RUN echo "######### dash > bash ##########" \
   && echo "${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha256sum -c - \
   && chown -R ${user} ${JENKINS_HOME} /usr/share/jenkins/ref \
   && /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt \
-  && echo "######### jenkins slave ##########" \          
-  && curl -L -o /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_SLAVE_VER}/remoting-${JENKINS_SLAVE_VER}.jar  \
   && echo "######### kubernete clinet ##########" \
   && wget https://dl.k8s.io/${KUBECTL}/kubernetes-client-linux-amd64.tar.gz \
   && tar -xzvf kubernetes-client-linux-amd64.tar.gz \

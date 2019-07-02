@@ -49,7 +49,6 @@ COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.groovy
 
-
 ###########################################################################
 # RUN
 ###########################################################################

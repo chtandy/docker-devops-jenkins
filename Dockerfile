@@ -17,6 +17,8 @@ ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-w
 ARG KUBECTL=v1.10.12
 ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
+ARG DOCKER_VERSION=18.09.0
+
 ###########################################################################
 # ENV
 ###########################################################################
@@ -101,6 +103,13 @@ RUN "echo ######### dash > bash ##########" \
   && unzip terraform_${TERRAFORM}_linux_amd64.zip \
   && mv terraform /usr/bin/ \
   && rm -f terraform_${TERRAFORM}_linux_amd64.zip \
+  && echo "######### docker client #########"         \          
+  && curl -L -o docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
+  && tar xf docker.tgz  \
+  && mv docker/docker /usr/local/bin/docker \
+  && chmod a+x /usr/local/bin/docker \
+  && rm -rf docker \
+  && echo "######### clear apt cache #########" \ 
   && rm -rf /var/lib/apt/lists/* && apt-get clean 
 
 

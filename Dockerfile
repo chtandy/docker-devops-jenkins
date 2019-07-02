@@ -82,7 +82,7 @@ RUN echo "######### dash > bash ##########" \
   && apt-add-repository ppa:ansible/ansible \
   && apt-get install ansible -y \
   && echo "######### install aws cli ##########" \
-  && apt install awscli -y \
+  && apt install awscli groff -y \
   && echo "######### install jenkins ##########" \
   && curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
   && echo "${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha256sum -c - \

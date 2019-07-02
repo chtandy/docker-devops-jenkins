@@ -52,7 +52,7 @@ COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.gr
 ###########################################################################
 # RUN
 ###########################################################################
-RUN "echo ######### dash > bash ##########" \
+RUN echo "######### dash > bash ##########" \
   && mv /bin/sh /bin/sh.old && ln -s bash /bin/sh \
   && echo "######### apt update ##########" \
   && apt-get update  && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales unzip rsync python python-pip netcat git \

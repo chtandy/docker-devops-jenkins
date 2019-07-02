@@ -5,9 +5,6 @@ services:
       context: ./
     container_name: jenkins
     hostname: jenkins
-    environment:
-      #JAVA_OPTS: "-Xmx512m -Xms512m"
-      JAVA_OPTS: "-Djava.awt.headless=true"
     ports:
       - '8080:8080'
       - '50000:50000'
@@ -16,9 +13,10 @@ services:
       - ./data/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - JENKINS_ADMIN_ID=root
-      - JENKINS_ADMIN_PW=admin
-      - JENKINS_MODE=master    
+      JAVA_OPTS: "-Djava.awt.headless=true"
+      JENKINS_ADMIN_ID: root
+      JENKINS_ADMIN_PW: admin
+      JENKINS_MODE: master
     restart: unless-stopped
     logging:
       driver: "json-file"

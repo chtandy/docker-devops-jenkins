@@ -18,4 +18,4 @@ docker-compose up -d --build
 ### jenkins plugin 注意事項
 - Node and Label parameter
   - 選項在參數化建置內
-  - `不能使用`限制專案執行節點
+  - `不能使用`限制專案執行節點選項

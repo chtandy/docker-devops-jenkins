@@ -14,3 +14,8 @@ touch ./data/jenkins_home/copy_reference_file.log && chmod +rw ./data/jenkins_ho
 ```
 ### 第一次啟動
 docker-compose up -d --build
+
+### jenkins plugin 注意事項
+- Node and Label parameter
+  - 選項在參數化建置內
+  - `不能使用`限制專案執行節點

@@ -110,7 +110,7 @@ RUN echo "######### dash > bash ##########" \
   && tar xf docker.tgz  \
   && mv docker/docker /usr/local/bin/docker \
   && chmod a+x /usr/local/bin/docker \
-  && rm -rf docker \
+  && rm -rf docker && rm -f docker.tgz \
   && echo "######### clear apt cache #########" \ 
   && rm -rf /var/lib/apt/lists/* && apt-get clean 
 

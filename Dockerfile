@@ -18,6 +18,7 @@ ARG KUBECTL=v1.10.12
 ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
 ARG DOCKER_VERSION=18.09.0
+ARG MAVEN_VERSION=3.6.1
 ###########################################################################
 # ENV for Master
 ###########################################################################
@@ -111,6 +112,11 @@ RUN echo "######### dash > bash ##########" \
   && mv docker/docker /usr/local/bin/docker \
   && chmod a+x /usr/local/bin/docker \
   && rm -rf docker && rm -f docker.tgz \
+  && echo "######### install maven  ##########" \
+  && wget -c http://apache.stu.edu.tw/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  && tar -zxvf apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  && rm -f apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  && mv apache-maven-${MAVEN_VERSION} /usr/local \
   && echo "######### clear apt cache #########" \ 
   && rm -rf /var/lib/apt/lists/* && apt-get clean 
 

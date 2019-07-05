@@ -23,4 +23,6 @@ docker-compose up -d --build
 ```
 mkdir -p ./data/jenkins_home ./data/data && chmod 777 ./data/jenkins_home && umask 0002 && \
 touch ./data/jenkins_home/copy_reference_file.log && chmod 777 ./data/jenkins_home/copy_reference_file.log
+
+sudo mkdir -p ./data/jenkins_home ./data/data  && sudo chmod -R 777 ./data && umask 0000
 ```

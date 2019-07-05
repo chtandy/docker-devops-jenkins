@@ -59,7 +59,7 @@ RUN echo "######### dash > bash ##########" \
 
 ## apt update & apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update  && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales unzip rsync python python-pip netcat git \
+  && apt-get update && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales unzip rsync python python-pip netcat git \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## add root bashrc
@@ -101,14 +101,14 @@ RUN echo "######### install jenkins ##########" \
 
 ## install ansible
 RUN echo "######### install ansible ##########" \
-  && apt-get install software-properties-common -y \
+  && apt-get update && apt-get install software-properties-common -y \
   && apt-add-repository ppa:ansible/ansible \
   && apt-get install ansible -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## install aws cli
 RUN echo "######### install aws cli ##########" \
-  && apt install awscli groff -y \
+  && apt-get update && apt install awscli groff -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## kubernete clinet

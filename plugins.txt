@@ -55,3 +55,4 @@ maven-plugin:latest
 nested-view:latest
 gitlab-oauth:latest
 nodelabelparameter:latest
+copyartifact:latest

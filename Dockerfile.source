@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 RUN mv /bin/sh /bin/sh.old && ln -s bash /bin/sh
-RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales -y
+RUN apt-get update && apt-get upgrade -y && apt-get install default-jre default-jdk sudo vim netcat git curl unzip locales -y \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
 RUN locale-gen zh_TW.UTF-8 && echo 'export LANGUAGE="zh_TW.UTF-8"' >> /root/.bashrc && \
     echo 'export LANG="zh_TW.UTF-8"' >> /root/.bashrc && \
     echo 'export LC_ALL="zh_TW.UTF-8"' >> /root/.bashrc && update-locale LANG=zh_TW.UTF-8

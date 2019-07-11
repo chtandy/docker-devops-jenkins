@@ -103,20 +103,21 @@ RUN echo "######### dash > bash ##########" \
   && unzip terraform_${TERRAFORM}_linux_amd64.zip \
   && mv terraform /usr/bin/ \
   && rm -f terraform_${TERRAFORM}_linux_amd64.zip \
-  && echo "######### docker client #########"         \          
+  && echo "######### docker client #########"         \
   && curl -L -o docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
   && tar xf docker.tgz  \
   && mv docker/docker /usr/local/bin/docker \
   && chmod a+x /usr/local/bin/docker \
   && rm -rf docker && rm -f docker.tgz \
-  && echo "######### clear apt cache #########" \ 
+  && echo "######### clear apt cache #########" \
   && rm -rf /var/lib/apt/lists/* && apt-get clean \
   && echo "######### install maven  ##########" \
   && wget -c http://apache.stu.edu.tw/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz \
   && tar -zxvf apache-maven-3.6.1-bin.tar.gz \
   && rm -f apache-maven-3.6.1-bin.tar.gz \
-  && mv apache-maven-3.6.1 /usr/local 
-
+  && mv apache-maven-3.6.1 /usr/local
+  
+  
 ###########################################################################
 # USER
 ###########################################################################

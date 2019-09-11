@@ -18,7 +18,7 @@ ARG KUBECTL=v1.15.3
 ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
 ARG DOCKER_VERSION=18.09.0
-ARG MAVEN_VERSION=3.6.1
+ARG MAVEN_VERSION=3.6.2
 
 ###########################################################################
 # ENV for Master
@@ -144,7 +144,7 @@ RUN echo "######### docker client #########"         \
 
 ## install maven
 RUN echo "######### install maven  ##########" \
-  && wget -c http://apache.stu.edu.tw/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  && wget -c http://ftp.twaren.net/Unix/Web/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && tar -zxvf apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && rm -f apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && mv apache-maven-${MAVEN_VERSION} /usr/local

@@ -59,7 +59,7 @@ RUN echo "######### dash > bash ##########" \
 
 ## apt update & apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales unzip rsync python python-pip netcat git \
+  && apt-get update && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales jq unzip rsync python python-pip netcat git \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## add root bashrc

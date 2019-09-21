@@ -141,6 +141,7 @@ RUN echo "######### docker client #########"         \
   && mv docker/docker /usr/local/bin/docker \
   && chmod a+x /usr/local/bin/docker \
   && rm -rf docker && rm -f docker.tgz \
+  && touch /var/run/docker.sock \
   && chown root:sudo /var/run/docker.sock
 
 ## install maven

@@ -19,6 +19,7 @@ ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
 ARG DOCKER_VERSION=18.09.0
 ARG MAVEN_VERSION=3.6.2
+ARG DockerID
 
 ###########################################################################
 # ENV for Master
@@ -141,8 +142,10 @@ RUN echo "######### docker client #########"         \
   && mv docker/docker /usr/local/bin/docker \
   && chmod a+x /usr/local/bin/docker \
   && rm -rf docker && rm -f docker.tgz \
+  && groupadd docker -g ${DockerID} \
   && touch /var/run/docker.sock \
-  && chown root:sudo /var/run/docker.sock
+  && chown root:${DockerID} /var/run/docker.sock \
+  && usermod -aG docker jenkins
 
 ## install maven
 RUN echo "######### install maven  ##########" \

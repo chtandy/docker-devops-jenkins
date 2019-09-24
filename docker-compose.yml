@@ -1,3 +1,4 @@
+## 使用 docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
 version: '3'
 services:
   jenkins:

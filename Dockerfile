@@ -1,3 +1,4 @@
+## 使用docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
 FROM ubuntu:16.04
 
 ###########################################################################

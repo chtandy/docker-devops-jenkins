@@ -110,15 +110,9 @@ RUN echo "######### install ansible ##########" \
 
 ## install aws cli
 RUN echo "######### install aws cli ##########" \
-  && apt-get update && apt install awscli groff -y \
-  && rm -rf /var/lib/apt/lists/* && apt-get clean \
-  && curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
-  && python /tmp/get-pip.py --user \
-  && export PATH=~/.local/bin:$PATH \
-  && pip install awscli --upgrade --user \
-  && rm -f /tmp/get-pip.py \
-  && mv /root/.local/bin/aws /usr/bin/ \
-  && rm -rf /root/.local
+  && curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip \
+  && unzip awscli-bundle.zip \
+  && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 ## kubernete clinet
 RUN echo "######### kubernete clinet ##########" \

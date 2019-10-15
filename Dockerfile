@@ -116,7 +116,9 @@ RUN echo "######### install aws cli ##########" \
   && python /tmp/get-pip.py --user \
   && export PATH=~/.local/bin:$PATH \
   && pip install awscli --upgrade --user \
-  && rm -f /tmp/get-pip.py
+  && rm -f /tmp/get-pip.py \
+  && mv /root/.local/bin/aws /usr/bin/ \
+  && rm -rf /root/.local
 
 ## kubernete clinet
 RUN echo "######### kubernete clinet ##########" \

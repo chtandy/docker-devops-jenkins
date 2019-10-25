@@ -19,7 +19,6 @@ ARG KUBECTL=v1.15.3
 ARG HELM=v2.11.0
 ARG TERRAFORM=0.12.3
 ARG DOCKER_VERSION=18.09.0
-ARG MAVEN_VERSION=3.6.2
 ARG DockerID
 
 ###########################################################################
@@ -61,7 +60,7 @@ RUN echo "######### dash > bash ##########" \
 
 ## apt update & apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update && apt-get install -y default-jre default-jdk sudo vim wget netcat git curl unzip locales jq unzip rsync python python-pip netcat git \
+  && apt-get update && apt-get install -y default-jre default-jdk maven sudo vim wget netcat git curl unzip locales jq unzip rsync python python-pip netcat git \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## add root bashrc
@@ -150,13 +149,6 @@ RUN echo "######### docker client #########"         \
   && touch /var/run/docker.sock \
   && chown root:${DockerID} /var/run/docker.sock \
   && usermod -aG docker jenkins
-
-## install maven
-RUN echo "######### install maven  ##########" \
-  && wget -c http://ftp.twaren.net/Unix/Web/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
-  && tar -zxvf apache-maven-${MAVEN_VERSION}-bin.tar.gz \
-  && rm -f apache-maven-${MAVEN_VERSION}-bin.tar.gz \
-  && mv apache-maven-${MAVEN_VERSION} /usr/local
 
 ###########################################################################
 # USER

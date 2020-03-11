@@ -32,7 +32,6 @@ ldap:latest
 mailer:latest
 maven-plugin:latest
 nested-view:latest
-gitlab-oauth:latest
 nodelabelparameter:latest
 ansicolor:latest
 thinBackup:latest

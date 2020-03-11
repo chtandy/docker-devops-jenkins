@@ -4,7 +4,6 @@ github:latest
 slack:latest
 role-strategy:latest
 categorized-view:latest
-thinBackup:latest
 gitlab-plugin:latest
 git-parameter:latest
 aws-parameter-store:latest
@@ -36,3 +35,4 @@ nested-view:latest
 gitlab-oauth:latest
 nodelabelparameter:latest
 ansicolor:latest
+thinBackup:latest

@@ -34,4 +34,5 @@ maven-plugin:latest
 nested-view:latest
 nodelabelparameter:latest
 ansicolor:latest
+uno-choice:latest
 thinBackup:latest

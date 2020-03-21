@@ -11,6 +11,7 @@ services:
       - '50000:50000'
     volumes:
       # sudo mkdir -p ./data/jenkins_home ./data/data  && sudo chmod -R 777 ./data && umask 0000
+      # mkdir -p data/jenkins_home && touch data/jenkins_home/copy_reference_file.log
       - ./data/jenkins_home:/var/jenkins_home
       - ./data/data:/data
       - /var/run/docker.sock:/var/run/docker.sock

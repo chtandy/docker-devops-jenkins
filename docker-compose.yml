@@ -11,7 +11,7 @@ services:
       - '8080:8080'
       - '50000:50000'
     volumes:
-      # mkdir -p data/jenkins_home data/jenkins_home/data && touch data/jenkins_home/copy_reference_file.log
+      # mkdir -p data/jenkins_home/data && touch data/jenkins_home/copy_reference_file.log
       - ./data/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:

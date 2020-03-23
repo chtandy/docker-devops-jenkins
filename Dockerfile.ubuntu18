@@ -100,7 +100,7 @@ RUN echo "######### install jenkins ##########" \
 ## install ansible
 RUN echo "######### install ansible ##########" \
   && apt-get update && apt-get install software-properties-common -y \
-  && apt-add-repository ppa:ansible/ansible \
+  && apt-add-repository --yes --update ppa:ansible/ansible \
   && apt-get install ansible -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
@@ -120,20 +120,20 @@ RUN echo "######### kubernete clinet ##########" \
   && rm -f kubernetes-client-linux-amd64.tar.gz \
   && rm -rf kubernetes
 
-## Helm
-RUN echo "######### Helm ##########" \
-  && wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM}-linux-amd64.tar.gz \
-  && tar -zxf helm-${HELM}-linux-amd64.tar.gz \
-  && mv linux-amd64/helm linux-amd64/tiller /usr/bin/ \
-  && rm -rf linux-amd64 \
-  && rm -f helm-${HELM}-linux-amd64.tar.gz
-
-## terraform
-RUN echo "######### terraform ##########" \
-  && wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip \
-  && unzip terraform_${TERRAFORM}_linux_amd64.zip \
-  && mv terraform /usr/bin/ \
-  && rm -f terraform_${TERRAFORM}_linux_amd64.zip
+### Helm
+#RUN echo "######### Helm ##########" \
+#  && wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM}-linux-amd64.tar.gz \
+#  && tar -zxf helm-${HELM}-linux-amd64.tar.gz \
+#  && mv linux-amd64/helm linux-amd64/tiller /usr/bin/ \
+#  && rm -rf linux-amd64 \
+#  && rm -f helm-${HELM}-linux-amd64.tar.gz
+#
+### terraform
+#RUN echo "######### terraform ##########" \
+#  && wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip \
+#  && unzip terraform_${TERRAFORM}_linux_amd64.zip \
+#  && mv terraform /usr/bin/ \
+#  && rm -f terraform_${TERRAFORM}_linux_amd64.zip
 
 ## docker client
 RUN echo "######### docker client #########"         \

@@ -3,7 +3,7 @@ version: '3'
 services:
   jenkins:
     build:
-      context: ./data
+      context: ./
       dockerfile: Dockerfile.ubuntu18
     container_name: jenkins
     hostname: jenkins

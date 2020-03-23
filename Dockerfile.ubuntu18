@@ -16,7 +16,6 @@ ENV uid=1000
 ENV gid=1000
 ENV http_port=8080
 ENV agent_port=50000
-ENV JENKINS_HOME=/var/jenkins_home
 ENV TINI_VERSION=v0.16.1
 ENV JENKINS_VERSION=2.204.5
 ENV JENKINS_SHA=94c73fa5b72e0a4eb52c5c99c08351f85a51d138f3dbaff6f64e4406353f839c
@@ -25,7 +24,7 @@ ENV KUBECTL=v1.17.3
 ENV HELM=v2.11.0
 ENV TERRAFORM=0.12.3
 ENV DOCKER_VERSION=18.09.0
-ENV JENKINS_HOME $JENKINS_HOME
+ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 ENV JENKINS_UC https://updates.jenkins.io
 ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
@@ -55,6 +54,7 @@ COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.gr
 ###########################################################################
 # RUN
 ###########################################################################
+
 ## apt update && apt-get clean
 RUN echo "######### apt update ##########" \
   && apt-get update && apt-get install -y default-jre default-jdk maven sudo vim wget git curl unzip locales jq unzip rsync python python-pip netcat --assume-yes apt-utils \
@@ -69,13 +69,7 @@ RUN echo "######### dash > bash ##########" \
   && echo "######### ssh_config ##########" \
   && echo "Host *" >> /etc/ssh/ssh_config \
   && echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
-  && echo "    UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config \
-  &&  echo "######### user add jenkins ##########" \
-  && mkdir -p ${HOME} \
-  && groupadd -g ${gid} ${group} \
-  && useradd  -d ${HOME} -u ${uid} -g ${gid}  -G sudo ${user} \
-  && chown -R ${uid}:${gid} ${HOME} \
-  && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+  && echo "    UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config 
 
 ## add jenkins user
 RUN echo "########## add jenkins user ##########" \

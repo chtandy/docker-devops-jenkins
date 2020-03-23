@@ -2,6 +2,7 @@
 version: '3'
 services:
   jenkins:
+    image: r19750927/jenkins-master:200323
     build:
       context: ./
       dockerfile: Dockerfile.ubuntu18

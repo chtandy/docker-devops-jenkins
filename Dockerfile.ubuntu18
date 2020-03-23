@@ -58,7 +58,7 @@ COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.gr
 
 ## apt update && apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update && apt-get install -y default-jre default-jdk maven sudo vim wget git curl unzip locales jq unzip rsync python python-pip netcat dialog --assume-yes apt-utils \
+  && apt-get update && apt-get install -y default-jre default-jdk maven sudo vim wget git curl unzip locales jq unzip rsync python python-pip netcat dialog apt-utils --assume-yes  \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN echo "######### dash > bash ##########" \

@@ -1,5 +1,5 @@
 ## 使用docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
-# 更新 jenkins ,tini ,docker version 2020/03/30
+# 更新 jenkins ,tini ,docker version
 FROM ubuntu:18.04
 
 ###########################################################################
@@ -93,8 +93,7 @@ RUN echo "######### install jenkins ##########" \
   && curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
   && echo "${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha256sum -c - \
   && chown -R ${user} ${JENKINS_HOME} /usr/share/jenkins/ref \
-  && /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt \
-  && mkdir -p ${JENKINS_HOME}/data
+  && /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 ## docker client
 RUN echo "######### docker client #########"         \

@@ -19,9 +19,6 @@ pam-auth:latest
 ldap:latest
 email-ext:latest
 mailer:latest
-# add to affter init
-pipeline-input-step:latest
-kubesphere-extension:latest
 # add 
 role-strategy:latest
 categorized-view:latest

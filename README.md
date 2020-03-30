@@ -1,7 +1,7 @@
 ### 2020/3/30
 - 更新
   - jenkins master version 2.222.1
-  - tini version v18.0
+  - tini version v0.18.0
   - docker client v19.03
 ### 環境注意
 - 如果是MAC,則 volumes 中有關docker的部分要改成

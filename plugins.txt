@@ -19,6 +19,8 @@ pam-auth:latest
 ldap:latest
 email-ext:latest
 mailer:latest
+# after init
+kubesphere-extension:latest
 # add
 role-strategy:latest
 categorized-view:latest

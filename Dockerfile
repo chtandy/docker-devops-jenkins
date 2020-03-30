@@ -1,4 +1,5 @@
 ## 使用docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
+# 更新 jenkins ,tini ,docker version 2020/03/30
 FROM ubuntu:18.04
 
 ###########################################################################
@@ -16,7 +17,7 @@ ENV uid=1000
 ENV gid=1000
 ENV http_port=8080
 ENV agent_port=50000
-ENV TINI_VERSION=v0.16.1
+ENV TINI_VERSION=v0.18.0
 ENV JENKINS_VERSION=2.222.1
 ENV JENKINS_SHA=5a6cbb836ceb79728c2d9f72645d0680f789cdb09a44485076aba6143bea953e
 ENV JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war

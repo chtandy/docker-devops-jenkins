@@ -22,7 +22,7 @@ services:
       JENKINS_MODE: master
     restart: unless-stopped
     # network_mode default is bridge
-    network_mode: host
+    #network_mode: host
     logging:
       driver: "json-file"
       options:

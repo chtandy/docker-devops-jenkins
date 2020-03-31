@@ -95,6 +95,21 @@ RUN echo "######### install jenkins ##########" \
   && chown -R ${user} ${JENKINS_HOME} /usr/share/jenkins/ref \
   && /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
+## install ansible
+RUN echo "######### install ansible ##########" \
+  && apt-get update && apt-get install software-properties-common -y \
+  && apt-add-repository ppa:ansible/ansible \
+  && apt-get install ansible -y \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
+
+## install aws cli
+RUN echo "######### install aws cli ##########" \
+  && curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip \
+  && unzip awscli-bundle.zip \
+  && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
+  && rm -f awscli-bundle.zip \
+  && rm -rf awscli-bundle
+
 ## docker client
 RUN echo "######### docker client #########"         \
   && curl -L -o docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \

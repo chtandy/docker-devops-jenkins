@@ -32,6 +32,11 @@ touch ./data/jenkins_home/copy_reference_file.log && chmod 777 ./data/jenkins_ho
 sudo mkdir -p ./data/jenkins_home ./data/data  && sudo chmod -R 777 ./data && umask 0000
 ```
 ### docker-compose build image
+- 停用
 ```
 docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
+```
+
+```
+docker-compose build
 ```

@@ -16,7 +16,7 @@ services:
       - ./data/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      JAVA_OPTS: "-Djava.awt.headless=true"
+      JAVA_OPTS: "-Djava.awt.headless=true -server -Xms1024m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=1024m"
       JENKINS_ADMIN_ID: ${JENKINS_ADMIN_ID}
       JENKINS_ADMIN_PW: ${JENKINS_ADMIN_PW}
       JENKINS_MODE: master

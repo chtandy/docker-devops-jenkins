@@ -1,4 +1,4 @@
-#default
+## default
 cloudbees-folder:latest
 antisamy-markup-formatter:latest
 build-timeout:latest
@@ -19,7 +19,13 @@ pam-auth:latest
 ldap:latest
 email-ext:latest
 mailer:latest
-# add 
+## update
+bouncycastle-api:latest
+command-launcher:latest
+jaxb:latest
+jdk-tool:latest
+windows-slaves:latest
+## add 
 role-strategy:latest
 categorized-view:latest
 #nodelabelparameter:latest

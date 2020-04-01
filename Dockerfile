@@ -30,6 +30,7 @@ ENV JENKINS_VERSION ${JENKINS_VERSION}
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 ENV DEBIAN_FRONTEND noninteractive
 ENV DOCKER_VERSION=19.03.0
+ENV KUBECTL=v1.19.0
 
 ###########################################################################
 # EXPOSE
@@ -120,6 +121,15 @@ RUN echo "######### install aws cli ##########" \
   && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list \
   && apt-get update  && apt-get install -y kubectl \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
+
+### if want to use version
+### kubernete clinet
+#RUN echo "######### kubernete clinet ##########" \
+#  && wget https://dl.k8s.io/${KUBECTL}/kubernetes-client-linux-amd64.tar.gz \
+#  && tar -xzvf kubernetes-client-linux-amd64.tar.gz \
+#  && mv kubernetes/client/bin/kubectl  /usr/bin/ \
+#  && rm -f kubernetes-client-linux-amd64.tar.gz \
+#  && rm -rf kubernetes
 
 ## docker client
 RUN echo "######### docker client #########"         \

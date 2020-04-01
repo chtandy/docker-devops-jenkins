@@ -12,7 +12,7 @@ services:
       - ${WEB_PORT}:8080
       - ${AGENT_PORT}:50000
     volumes:
-      # mkdir -p data/jenkins_home/data && sudo chown -R 1000:1000 data/jenkins_home
+      # sudo mkdir -p data/jenkins_home/data && sudo chmod 775 -R data/jenkins_home && sudo chown -R 1000:1000 data/jenkins_home
       - ./data/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:

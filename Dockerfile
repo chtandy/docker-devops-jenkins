@@ -56,7 +56,7 @@ COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.gr
 
 ## apt update && apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update && apt-get install -y apt-utils default-jdk gnupg sudo wget git curl locales unzip --assume-yes  \
+  && apt-get update && apt-get install -y apt-utils default-jdk gnupg sudo wget git curl locales --assume-yes  \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN echo "######### dash > bash ##########" \
@@ -104,11 +104,22 @@ RUN echo "######### install ansible ##########" \
 
 ## install aws cli
 RUN echo "######### install aws cli ##########" \
+  && apt-get update && apt-get install -y unzip \
   && curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip \
   && unzip awscli-bundle.zip \
   && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
   && rm -f awscli-bundle.zip \
-  && rm -rf awscli-bundle
+  && rm -rf awscli-bundle \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
+
+## install kubectl client
+RUN echo "######### install aws cli ##########" \
+  && apt-get update && apt-get install -y apt-transport-https curl \
+  && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+  && mkdir -p /etc/apt/sources.list.d/ && touch /etc/apt/sources.list.d/kubernetes.list \
+  && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list \
+  && apt-get update  && apt-get install -y kubectl \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 ## docker client
 RUN echo "######### docker client #########"         \

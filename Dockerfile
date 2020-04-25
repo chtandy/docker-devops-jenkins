@@ -5,7 +5,7 @@ FROM ubuntu:18.04
 ###########################################################################
 # ARG app Version
 ###########################################################################
-
+ARG DEBIAN_FRONTEND=noninteractive
 ARG DockerID=999
 
 ###########################################################################
@@ -28,7 +28,6 @@ ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 ENV JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
 ENV JENKINS_VERSION ${JENKINS_VERSION}
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
-ENV DEBIAN_FRONTEND noninteractive
 ENV DOCKER_VERSION=19.03.0
 ENV KUBECTL=v1.19.0
 

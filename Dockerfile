@@ -75,7 +75,7 @@ RUN echo "########## add jenkins user ##########" \
   && mkdir -p $JENKINS_HOME \
   && chown ${uid}:${gid} $JENKINS_HOME \
   && groupadd -g ${gid} ${group} \
-  && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -G sudo-s /bin/bash ${user} \
+  && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -G sudo -s /bin/bash ${user} \
   && usermod -aG root ${user} \
   && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 

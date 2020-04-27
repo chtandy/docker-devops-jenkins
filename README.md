@@ -42,3 +42,14 @@ docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':'
 ```
 docker-compose build
 ```
+```
+## add jenkins user
+RUN echo "########## add jenkins user ##########" \
+  && mkdir -p $JENKINS_HOME \
+  && touch $JENKINS_HOME/copy_reference_file.log \
+  && chown ${uid}:${gid} $JENKINS_HOME \
+  && chmod -R 775 $JENKINS_HOME \
+  && groupadd -g ${gid} ${group} \
+  && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -G sudo,root -s /bin/bash ${user} \
+  && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+```

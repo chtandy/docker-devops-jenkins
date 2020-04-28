@@ -56,7 +56,7 @@ COPY init_login.groovy /usr/share/jenkins/ref/init.groovy.d/set-user-security.gr
 
 ## apt update && apt-get clean
 RUN echo "######### apt update ##########" \
-  && apt-get update && apt-get install -y apt-utils default-jdk gnupg sudo wget git curl locales unzip --assume-yes  \
+  && apt-get update && apt-get install -y apt-utils default-jdk gnupg sudo wget git curl locales unzip vim --assume-yes  \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 RUN echo "######### dash > bash ##########" \

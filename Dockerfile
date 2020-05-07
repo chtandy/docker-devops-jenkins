@@ -28,6 +28,7 @@ ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 ENV JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
 ENV JENKINS_VERSION ${JENKINS_VERSION}
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
+ENV ANSIBLE_VERSION=2.9
 ENV DOCKER_VERSION=19.03.0
 ENV KUBECTL=v1.19.0
 
@@ -98,7 +99,7 @@ RUN echo "######### install jenkins ##########" \
 ## install ansible
 RUN echo "######### install ansible ##########" \
   && apt-get update && apt-get install software-properties-common -y \
-  && apt-add-repository ppa:ansible/ansible \
+  && apt-add-repository ppa:ansible/ansible${ANSIBLE_VERSION} \
   && apt-get install ansible -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 

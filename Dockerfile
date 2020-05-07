@@ -99,7 +99,7 @@ RUN echo "######### install jenkins ##########" \
 ## install ansible
 RUN echo "######### install ansible ##########" \
   && apt-get update && apt-get install software-properties-common -y \
-  && apt-add-repository ppa:ansible/ansible${ANSIBLE_VERSION} \
+  && apt-add-repository ppa:ansible/ansible-${ANSIBLE_VERSION} \
   && apt-get install ansible -y \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 

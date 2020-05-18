@@ -121,15 +121,6 @@ RUN echo "######### install aws cli ##########" \
   && apt-get update  && apt-get install -y kubectl \
   && rm -rf /var/lib/apt/lists/* && apt-get clean
 
-### if want to use version
-### kubernete clinet
-#RUN echo "######### kubernete clinet ##########" \
-#  && wget https://dl.k8s.io/${KUBECTL}/kubernetes-client-linux-amd64.tar.gz \
-#  && tar -xzvf kubernetes-client-linux-amd64.tar.gz \
-#  && mv kubernetes/client/bin/kubectl  /usr/bin/ \
-#  && rm -f kubernetes-client-linux-amd64.tar.gz \
-#  && rm -rf kubernetes
-
 ## docker client
 RUN echo "######### docker client #########"         \
   && curl -L -o docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \

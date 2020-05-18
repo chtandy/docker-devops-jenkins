@@ -1,4 +1,3 @@
-## 使用docker-compose build --build-arg DockerID=$(cat /etc/group|grep docker|cut -d':' -f3)
 # 更新 jenkins ,tini ,docker version
 FROM ubuntu:18.04
 

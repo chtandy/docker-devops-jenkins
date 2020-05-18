@@ -25,6 +25,8 @@ services:
       JENKINS_ADMIN_PW: ${JENKINS_ADMIN_PW}
       JENKINS_MODE: master
     restart: unless-stopped
+    depends_on:
+    - init
     # network_mode default is bridge
     #network_mode: host
     logging:

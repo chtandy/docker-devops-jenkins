@@ -2,7 +2,7 @@ version: '3'
 services:
   init:
     image: busybox
-    command: chown -R 1000:1000 /var/jenkins_home
+    command: chown 1000:1000 /var/jenkins_home
     volumes:
       - ./data/jenkins_home:/var/jenkins_home
     restart: 'no'
